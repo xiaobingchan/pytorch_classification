@@ -6,13 +6,13 @@
 import os
 home = os.path.expanduser('~')
 ##数据集的类别
-NUM_CLASSES = 206
+NUM_CLASSES = 11
 
 #训练时batch的大小
 BATCH_SIZE = 32
 
 #网络默认输入图像的大小
-INPUT_SIZE = 300
+INPUT_SIZE = 200
 #训练最多的epoch
 MAX_EPOCH = 100
 # 使用gpu的数目
@@ -27,7 +27,7 @@ LR = 1e-3
 
 
 # 采用的模型名称
-model_name = 'resnext101_32x32d'
+model_name = 'resnext101_32x8d'
 
 from models import Resnet50, Resnet101, Resnext101_32x8d,Resnext101_32x16d, Densenet121, Densenet169, Mobilenetv2, Efficientnet, Resnext101_32x32d, Resnext101_32x48d
 MODEL_NAMES = {

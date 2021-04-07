@@ -153,6 +153,7 @@ for iteration in range(start_iter, max_iter):
         images, labels = images.cuda(), labels.cuda()
 
     out = model(images)
+    labels = labels.to(dtype=torch.int64)
     loss = criterion(out, labels)
 
     optimizer.zero_grad()  # 清空梯度信息，否则在每次进行反向传播时都会累加

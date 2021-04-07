@@ -11,28 +11,30 @@ import random
 
 
 if __name__ == '__main__':
+    cfg.BASE =  "D:\\05分类图片\\pytorch_classification-master\\data\\"
     traindata_path = cfg.BASE + 'train'
+    print(traindata_path)
     labels = os.listdir(traindata_path)
     valdata_path = cfg.BASE + 'test'
     ##写train.txt文件
     txtpath = cfg.BASE
-    # print(labels)
+    print(labels)
     for index, label in enumerate(labels):
-        imglist = glob.glob(os.path.join(traindata_path,label, '*.png'))
-        # print(imglist)
+        imglist = glob.glob(os.path.join(traindata_path,label, '*.jpg'))
+        print(imglist)
         random.shuffle(imglist)
         print(len(imglist))
         trainlist = imglist[:int(0.8*len(imglist))]
         vallist = imglist[(int(0.8*len(imglist))+1):]
         with open(txtpath + 'train.txt', 'a')as f:
             for img in trainlist:
-                # print(img + ' ' + str(index))
+                print(img + ' ' + str(index))
                 f.write(img + ' ' + str(index))
                 f.write('\n')
 
         with open(txtpath + 'val.txt', 'a')as f:
             for img in vallist:
-                # print(img + ' ' + str(index))
+                print(img + ' ' + str(index))
                 f.write(img + ' ' + str(index))
                 f.write('\n')
 

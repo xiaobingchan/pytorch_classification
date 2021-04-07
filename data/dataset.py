@@ -32,6 +32,8 @@ class  SelfCustomDataset(Dataset):
         img_dir: 图片路径：img_dir + img_name.jpg构成图片的完整路径      
         '''
         # 所有图片的绝对路径
+        label_file =  "D:\\05分类图片\\pytorch_classification-master\\data\\train.txt"
+        print(label_file)
         with open(label_file, 'r') as f:
             #label_file的格式， （label_file image_label)
             self.imgs = list(map(lambda line: line.strip().split(' '), f))
@@ -71,11 +73,11 @@ class  SelfCustomDataset(Dataset):
 
 train_label_dir = cfg.TRAIN_LABEL_DIR
 train_datasets = SelfCustomDataset(train_label_dir, imageset='train')
-train_dataloader = torch.utils.data.DataLoader(train_datasets, batch_size=batch_size, shuffle=True, num_workers=2)
+train_dataloader = torch.utils.data.DataLoader(train_datasets, batch_size=batch_size, shuffle=False)
 
 val_label_dir = cfg.VAL_LABEL_DIR
 val_datasets = SelfCustomDataset(val_label_dir, imageset='test')
-val_dataloader = torch.utils.data.DataLoader(val_datasets, batch_size=batch_size, shuffle=True, num_workers=2)
+val_dataloader = torch.utils.data.DataLoader(val_datasets, batch_size=batch_size, shuffle=False)
 
 
 ##进行数据提取函数的测试
